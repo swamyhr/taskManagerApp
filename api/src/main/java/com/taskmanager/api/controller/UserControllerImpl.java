@@ -1,8 +1,10 @@
 package com.taskmanager.api.controller;
 
 import com.taskmanager.api.dto.UserDTO;
-import com.taskmanager.api.entity.User;
+import com.taskmanager.api.entity.UserEntity;
+import com.taskmanager.api.model.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +14,7 @@ import java.util.List;
 @RequestMapping("api/v1/users")
 public class UserControllerImpl implements UserController {
     @Override
-    public ResponseEntity<UserDTO> createUser(User user) {
+    public ResponseEntity<UserDTO> createUser(@RequestBody User user) {
         return null;
     }
 

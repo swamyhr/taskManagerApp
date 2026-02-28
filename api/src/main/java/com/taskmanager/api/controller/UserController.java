@@ -1,7 +1,7 @@
 package com.taskmanager.api.controller;
 
 import com.taskmanager.api.dto.UserDTO;
-import com.taskmanager.api.entity.User;
+import com.taskmanager.api.model.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
