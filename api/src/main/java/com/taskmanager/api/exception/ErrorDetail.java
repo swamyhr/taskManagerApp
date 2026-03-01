@@ -1,8 +1,9 @@
 package com.taskmanager.api.exception;
 
 import lombok.Builder;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 @Builder
 public class ErrorDetail {
 

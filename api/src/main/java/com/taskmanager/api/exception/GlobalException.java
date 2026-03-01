@@ -1,23 +1,22 @@
 package com.taskmanager.api.exception;
 
-import org.springframework.boot.web.error.Error;
-import org.springframework.dao.DataIntegrityViolationException;
+import com.taskmanager.api.exception.custom.DuplicateEmailException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class GolbalException {
+public class GlobalException {
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity handleDatabaseException(DataIntegrityViolationException exx) {
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<ErrorDetail> handleDatabaseException(DuplicateEmailException ex) {
 
         ErrorDetail errorDetail = ErrorDetail.builder()
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.toString())
-                .message(exx.getMessage())
+                .message(ex.getMessage())
                 .build();
-        return new ResponseEntity(errorDetail, HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorDetail);
     }
 
 }
