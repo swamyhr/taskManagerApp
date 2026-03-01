@@ -1,9 +1,9 @@
 package com.taskmanager.api.service;
 
 import com.taskmanager.api.dto.UserDTO;
-import com.taskmanager.api.entity.UserEntity;
+import com.taskmanager.api.model.User;
 
 public interface UserService {
 
-    UserDTO createUser(UserEntity user);
+    UserDTO createUser(User user);
 }
