@@ -39,4 +39,11 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.toUserDTO(savedUserEntity);
     }
+
+    @Override
+    public boolean verifyCredentials(String email, String password) {
+
+
+        return false;
+    }
 }

@@ -6,4 +6,6 @@ import com.taskmanager.api.model.User;
 public interface UserService {
 
     UserDTO createUser(User user);
+
+    boolean verifyCredentials(String email, String password);
 }

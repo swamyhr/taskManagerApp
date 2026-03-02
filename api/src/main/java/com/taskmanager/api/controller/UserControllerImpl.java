@@ -1,5 +1,6 @@
 package com.taskmanager.api.controller;
 
+import com.taskmanager.api.dto.LoginUserDTO;
 import com.taskmanager.api.dto.UserDTO;
 import com.taskmanager.api.model.User;
 import com.taskmanager.api.service.UserService;
@@ -42,5 +43,17 @@ public class UserControllerImpl implements UserController {
     @Override
     public ResponseEntity<String> deleteUser(Integer userId) {
         return null;
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@Valid @RequestBody LoginUserDTO userDetails) {
+
+        boolean isAuthenticated = userService.verifyCredentials(userDetails.getEmail(), userDetails.getPassword());
+
+        if(isAuthenticated) {
+            System.out.println("Login success");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email or Password is Incorrect");
+        }
     }
 }
