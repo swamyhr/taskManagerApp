@@ -51,7 +51,7 @@ public class UserControllerImpl implements UserController {
         boolean isAuthenticated = userService.verifyCredentials(userDetails.getEmail(), userDetails.getPassword());
 
         if(isAuthenticated) {
-            System.out.println("Login success");
+            return ResponseEntity.ok().body("User Authenticated");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email or Password is Incorrect");
         }
